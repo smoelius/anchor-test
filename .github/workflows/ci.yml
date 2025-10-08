@@ -10,6 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         environment: [ubuntu-latest, macos-latest]
+        enable_logging: [true, false]
 
     runs-on: ${{ matrix.environment }}
 
@@ -38,6 +39,5 @@ jobs:
           # Initialize an Anchor project and test it
           anchor init foo
           cd foo
-          anchor test || true
-
-          ../anchor-test-hack.sh foo
+          export RUST_LOG="$(${{ matrix.enable_logging }} && echo -n debug)"
+          anchor test
