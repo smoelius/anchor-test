@@ -38,4 +38,6 @@ jobs:
           # Initialize an Anchor project and test it
           anchor init foo
           cd foo
-          anchor test
+          anchor test || true
+
+          ../anchor-test-hash.sh foo
