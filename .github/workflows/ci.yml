@@ -40,4 +40,4 @@ jobs:
           cd foo
           anchor test || true
 
-          ../anchor-test-hash.sh foo
+          ../anchor-test-hack.sh foo
