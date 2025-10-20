@@ -41,4 +41,4 @@ jobs:
           cd foo
           export RUST_LOG="$(${{ matrix.enable_logging }} && echo -n debug)"
           ../anchor-test-hack.sh foo
-          cat .anchor/test-ledger/validator.log | grep DEBUG
+          cat test-ledger/validator.log | grep DEBUG
