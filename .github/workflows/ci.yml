@@ -19,7 +19,7 @@ jobs:
 
       - name: Install Anchor prerequisites on Ubuntu
         if: ${{ matrix.environment == 'ubuntu-latest' }}
-        run: sudo apt install libudev-dev
+        run: sudo apt update && sudo apt install libudev-dev
 
       - name: Test
         run: |
