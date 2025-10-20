@@ -34,11 +34,11 @@ jobs:
           cp etc/rfc8032_test_vector.json $HOME/.config/solana/id.json
 
           # Install Anchor
-          cargo install --git https://github.com/solana-foundation/anchor --tag v0.32.0 anchor-cli
+          cargo install --git https://github.com/solana-foundation/anchor --tag v0.32.1 anchor-cli
 
           # Initialize an Anchor project and test it
           anchor init foo
           cd foo
           export RUST_LOG="$(${{ matrix.enable_logging }} && echo -n debug)"
-          anchor test
+          ../anchor-test-hack.sh foo
           cat .anchor/test-ledger/validator.log | grep DEBUG
